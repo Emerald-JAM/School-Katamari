@@ -10,6 +10,8 @@ public class Pickup : MonoBehaviour
         
     }
 
+	//Comment by Thien
+
     // Update is called once per frame
     void Update()
     {

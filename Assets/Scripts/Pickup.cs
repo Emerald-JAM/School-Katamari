@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Pickup : MonoBehaviour
 {
+	private GameObject last_collided_item;
+	
     // Start is called before the first frame update
     void Start()
     {
@@ -22,16 +24,18 @@ public class Pickup : MonoBehaviour
                 child.gameObject.GetComponent<Collider>().enabled = true;
                 child.transform.parent = null;
             }
-        }
+        } else if(Input.GetKey("e")){
+			if (last_collided_item.name.Contains("item"))
+			{
+				last_collided_item.transform.parent = this.transform;
+				last_collided_item.GetComponent<Rigidbody>().isKinematic = true;
+				last_collided_item.GetComponent<Collider>().enabled = false;
+			}
+		}
     }
 
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.name.Contains("item") && Input.GetKey("e"))
-        {
-            collision.transform.parent = transform;
-            collision.gameObject.GetComponent<Rigidbody>().isKinematic = true;
-            collision.gameObject.GetComponent<Collider>().enabled = false;
-        }
+		last_collided_item = collision.gameObject;
     }
 }

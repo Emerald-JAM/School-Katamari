@@ -19,10 +19,20 @@ public class Pickup : MonoBehaviour
     {
         if (Input.GetKey("q"))
         {
-            foreach (Transform child in transform)
+            /*foreach (Transform child in transform)
             {
                 child.gameObject.GetComponent<Collider>().enabled = true;
                 child.transform.parent = null;
+            }*/
+
+            var TempVar = FindObjectsOfType<GameObject>();
+            for (int i = 0; i < TempVar.Length; i++)
+            {
+                if (TempVar[i].name.Contains("item"))
+                {
+                    TempVar[i].gameObject.GetComponent<Collider>().enabled = true;
+                    TempVar[i].transform.parent = null;
+                }
             }
         } else if(Input.GetKey("e")){
 			if (last_collided_item.name.Contains("item"))

@@ -48,6 +48,11 @@ public class WASDcontroller : MonoBehaviour
             //rb.AddForce(thrust, 0, 0, ForceMode.Impulse);
             x = thrust;
         }
+        if (Input.GetKey("space"))
+        {
+            GameObject system = GameObject.Find("Attack Particles");
+            system.GetComponent<ParticleSystem>().Play(true);
+        }
         /*if (Input.GetKeyDown("right shift") || Input.GetKeyDown("left shift"))
         {
             thrust += 0.2f;
@@ -58,6 +63,7 @@ public class WASDcontroller : MonoBehaviour
         movementForce = new Vector3(x, y, z);
         movementForce = cameraObj.transform.TransformDirection(movementForce);
         rb.AddForce(movementForce, ForceMode.Impulse);
+        //rb.MovePosition(rb.position + movementForce);
     }
 
     /*void OnCollisionEnter(Collision collision)

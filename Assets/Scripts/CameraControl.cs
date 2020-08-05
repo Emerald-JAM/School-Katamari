@@ -24,7 +24,7 @@ public class CameraControl : MonoBehaviour
     {
         //input.GetMouseButtonDown
         //  --To Do-- Make camera actively follow player ALWAYS (copy from other camera script)
-        if (Input.GetMouseButton(0))
+        /*if (Input.GetMouseButton(0))
         {
             userRotation = true;
         }
@@ -57,6 +57,13 @@ public class CameraControl : MonoBehaviour
             //userRotation = false;
             this.transform.localEulerAngles = new Vector3(54, transform.localEulerAngles.y, transform.localEulerAngles.z);
             Debug.Log(transform.localEulerAngles.x);
+        }*/
+
+        if (Input.GetMouseButton(0))
+        {
+            offset = Quaternion.AngleAxis(Input.GetAxis("Mouse X") * turnSpeed, Vector3.up) * offset;
         }
+        transform.position = playerTransform.position + offset;
+        transform.LookAt(playerTransform.position);
     }
 }       

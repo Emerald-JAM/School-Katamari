@@ -74,4 +74,16 @@ public class SceneManagement : MonoBehaviour
             Destroy(player.transform.Find("item").gameObject);
         }
     }
+    public void ResetGame()
+    {
+        Destroy(GameObject.Find("KeepAcrossScenes"));
+        SceneManager.LoadScene("Scene1", LoadSceneMode.Single);
+    }
+
+    public void ResetScene()
+    {
+        Destroy(GameObject.Find("KeepAcrossScenes"));
+        //string activeScene = SceneManager.GetActiveScene;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single);
+    }
 }

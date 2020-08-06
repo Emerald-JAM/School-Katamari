@@ -48,4 +48,11 @@ public class Pickup : MonoBehaviour
     {
 		last_collided_item = collision.gameObject;
     }
+    void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.name == "item")
+        {
+            last_collided_item = null;
+        }
+    }
 }

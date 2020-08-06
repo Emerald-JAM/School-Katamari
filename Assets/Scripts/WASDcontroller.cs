@@ -9,12 +9,15 @@ public class WASDcontroller : MonoBehaviour
     public float y;
     public float z;
     public Rigidbody rb;
+    public SceneManagement yes;
     public Camera cameraObj;
     private Vector3 movementForce;
+    
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        yes = GameObject.Find("goal").GetComponent<SceneManagement>();
     }
 
     // Update is called once per frame
@@ -52,6 +55,10 @@ public class WASDcontroller : MonoBehaviour
         {
             GameObject system = GameObject.Find("Attack Particles");
             system.GetComponent<ParticleSystem>().Play(true);
+        }
+        if (Input.GetKey("p"))
+        {
+            yes.nextLevel();
         }
         /*if (Input.GetKeyDown("right shift") || Input.GetKeyDown("left shift"))
         {

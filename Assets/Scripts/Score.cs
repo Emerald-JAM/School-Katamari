@@ -7,12 +7,14 @@ public class Score : MonoBehaviour
 {
     public Text scoreText;
     public int totalScore;
+    public int scoreAtLevel;
     private AudioSource sfx;
 
     // Start is called before the first frame update
     void Start()
     {
         totalScore = 0;
+        scoreAtLevel = 0;
         scoreText.text = "Score: " + totalScore.ToString();
         sfx = GameObject.Find("player").GetComponent<AudioSource>();
     }

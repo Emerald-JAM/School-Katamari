@@ -18,7 +18,7 @@ public class EnemyDeath : MonoBehaviour
             gameObject.SetActive(false);
         }
     }
-    private void OnParticleCollision(GameObject other)
+     void OnParticleCollision(GameObject other)
     {
         gameObject.SetActive(false);
     }
